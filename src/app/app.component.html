@@ -1,0 +1,65 @@
+<main class="main">
+  <p-splitter 
+    [style]="{ height: '100vh', margin:0 }" 
+    [panelSizes]="[20, 80]" 
+    [minSizes]="[10, 0]" 
+    styleClass="mb-5">
+        <ng-template pTemplate>
+          <p-splitter [panelSizes]="[70, 30]" layout="vertical">
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center">
+                    Panel for color palletes
+                </div>
+            </ng-template>
+            <ng-template pTemplate>
+                <div class="col flex align-items-center justify-content-center">
+                  <p-colorPicker [style]="{width:'100%'}" [inline]="true" />
+                  <p-button label="Save" class="mt-2" size="small" [outlined]="true" />
+                </div>
+            </ng-template>
+        </p-splitter>
+        </ng-template>
+        <ng-template pTemplate>
+            <p-splitter layout="vertical" [panelSizes]="[80, 20]">
+                <ng-template pTemplate>
+                    <div style="flex-grow: 1;" class="flex align-items-center justify-content-center">
+                      <p-tabView>
+                        <p-tabPanel header="File 1">
+                            <div class="editor-content">
+                              <div class="canvas-wrapper">
+                                <div [style]="{width:'600px', height:'600px', background:'red'}"></div>
+                              </div>
+                              <div class="canvas-toolbar">sdf</div>
+                            </div>
+                        </p-tabPanel>
+                        <p-tabPanel header="File 2">
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
+                            </p>
+                        </p-tabPanel>
+                    </p-tabView>                    
+                    </div>
+                </ng-template>
+                <ng-template pTemplate>
+                  <div style="flex-grow: 1;" class="flex align-items-center justify-content-center">
+                      <p-tabView>
+                        <p-tabPanel header="Input">
+                            <p>
+                                Lorem ipsum dolor sit amet...
+                            </p>
+                        </p-tabPanel>
+                        <p-tabPanel header="Output">
+                            <p>
+                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
+                            </p>
+                        </p-tabPanel>
+                    </p-tabView>  
+                    </div>
+                </ng-template>
+            </p-splitter>
+        </ng-template>
+</p-splitter>
+
+</main>
+
+<router-outlet />

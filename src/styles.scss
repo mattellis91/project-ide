@@ -1,0 +1,60 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.p-splitter {
+    background: none;
+    border-radius: 0;
+}
+
+.p-tabview, .p-tabview-nav, .p-tabview-panels, .p-tabview-panel, .p-tabview-panels .p-tabview-panel {
+    background: none;
+    border-radius: 0;
+    font-size: small;
+    .p-tabview-nav-link {
+        background: none;
+        border-radius: 0;
+    }
+}
+
+.editor-content {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.canvas-wrapper {
+    width: 97%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.canvas-toolbar {
+    width: 3%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:black;
+    flex-grow: 0;
+}
+
+.p-tabview, .p-tabview-panels {
+    height: 100%;
+    // .p-element {
+    //     height: 100%;
+    // }
+    padding: 0;
+    .p-tabview-panel {
+        height: 100%;
+    }
+}
