@@ -26,6 +26,7 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
   ctx:CanvasRenderingContext2D | null = null;
   hoverPixel: PixelLocation = {x: -1, y: -1};
   dragging = false;
+  canvasZoomDelta = 15;
 
   constructor(private editorService:EditorService) { }
 
@@ -55,6 +56,22 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
 
     canvas.onmouseup = (e:MouseEvent) => {
       this.handleMouseUp(e);
+    }
+
+    canvas.onwheel = (e:WheelEvent) => {
+      if(e.deltaY < 0) {
+        this.canvasHeight += this.canvasZoomDelta;
+        this.canvasWidth += this.canvasZoomDelta;
+      } else {
+        this.canvasHeight -= this.canvasZoomDelta;
+        this.canvasWidth -= this.canvasZoomDelta;
+      }
+      this.pixelWidth = this.canvasWidth / this.pixelsWide;
+      this.pixelHeight = this.canvasHeight / this.pixelsHigh;
+
+      this.canvas.nativeElement.width = this.canvasWidth;
+      this.canvas.nativeElement.height = this.canvasHeight;
+      this.ctx!.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
     }
 
     window.requestAnimationFrame(() => this.renderLoop());
