@@ -1,87 +1,128 @@
 import { Component } from '@angular/core';
+import { EditorService } from '../../services/editor.service';
 
 
-interface Command { color: string, text: string }
+interface Color { hex: string, description: string, action: string | undefined }
 @Component({
   selector: 'app-palete-panel',
   templateUrl: './palete-panel.component.html',
   styleUrl: './palete-panel.component.scss'
 })
 
-
 export class PaletePanelComponent {
-  commands:Command[]= [
+  selectedColor:string | undefined;
+  commands:Color[]= [
     {
-      text: 'nop',
-      color: '#1976D2'
+      description: 'Light Red',
+      hex: '#FFC0C0',
+      action: undefined
     },
     {
-      text: 'add',
-      color: '#1976D2'
+      description: 'Red',
+      hex: '#FF0000',
+      action: undefined
     },
     {
-      text: 'div',
-      color: '#1976D2'
+      description: 'Dark Red',
+      hex: '#C00000',
+      action: undefined
     },
     {
-      text: 'greater',
-      color: '#1976D2'
+      description: 'Light Yellow',
+      hex: '#FFFFC0',
+      action: undefined
     },
     {
-      text: 'dup',
-      color: '#1976D2'
+      description: 'Yellow',
+      hex: '#FFFF00',
+      action: undefined
     },
     {
-      text: 'in(char)',
-      color: '#1976D2'
+      description: 'Dark Yellow',
+      hex: '#C0C000',
+      action: undefined
     },
     {
-      text: 'push',
-      color: '#1976D2'
+      description: 'Light Green',
+      hex: '#C0FFC0',
+      action: undefined
     },
     {
-      text: 'sub',
-      color: '#1976D2'
+      description: 'Green',
+      hex: '#00FF00',
+      action: undefined
     },
     {
-      text: 'mod',
-      color: '#1976D2'
+      description: 'Dark Green',
+      hex: '#00C000',
+      action: undefined
     },
     {
-      text: 'pointer',
-      color: '#1976D2'
+      description: 'Light Cyan',
+      hex: '#C0FFFF',
+      action: undefined
     },
     {
-      text: 'roll',
-      color: '#1976D2'
+      description: 'Cyan',
+      hex: '#00FFFF',
+      action: undefined
     },
     {
-      text: 'out(num)',
-      color: '#1976D2'
+      description: 'Dark Cyan',
+      hex: '#00C0C0',
+      action: undefined
     },
     {
-      text: 'pop',
-      color: '#1976D2'
+      description: 'Light Blue',
+      hex: '#C0C0FF',
+      action: undefined
     },
     {
-      text: 'mul',
-      color: '#1976D2'
+      description: 'Blue',
+      hex: '#0000FF',
+      action: undefined
     },
     {
-      text: 'not',
-      color: '#1976D2'
+      description: 'Dark Blue',
+      hex: '#0000C0',
+      action: undefined
     },
     {
-      text: 'switch',
-      color: '#1976D2'
+      description: 'Light Magenta',
+      hex: '#FFC0FF',
+      action: undefined
     },
     {
-      text: 'in(num)',
-      color: '#1976D2'
+      description: 'Magenta',
+      hex: '#FF00FF',
+      action: undefined
     },
     {
-      text: 'out(char)',
-      color: '#1976D2'
+      description: 'Dark Magenta',
+      hex: '#C000C0',
+      action: undefined
+    },
+    {
+      description: 'White',
+      hex: '#FFFFFF',
+      action: undefined
+    },
+    {
+      description: 'Black',
+      hex: '#000000',
+      action: undefined
     }
   ] 
+
+  constructor(private editorService: EditorService) { }
+
+  setCommandColor(command:Color) {
+    console.log(command);
+    this.editorService.selectedColor = command.hex;
+    this.selectedColor = command.hex;
+  }
+
+  ngOnInit() {
+    this.selectedColor = this.editorService.selectedColor;
+  }
 }

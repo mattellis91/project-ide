@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EditorRoutingModule } from './editor-routing.module';
 
+import { EditorService } from './services/editor.service';
+
 import { EditorComponent } from './views/editor.component';
 
 import { PaletePanelComponent } from './components/palete-panel/palete-panel.component';
@@ -14,7 +16,7 @@ import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { SplitterModule } from 'primeng/splitter';
-import { EditorService } from './services/editor.service';
+import { AngularSplitModule } from 'angular-split';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { EditorService } from './services/editor.service';
     ButtonModule,
     TabViewModule,
     ColorPickerModule,
-    SplitterModule
+    SplitterModule,
+    AngularSplitModule
   ],
   providers: [
     EditorService

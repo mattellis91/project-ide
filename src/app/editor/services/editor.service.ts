@@ -5,6 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class EditorService {
 
-  selectedColor:string | undefined;
+  selectedColor:string = '#000';
   constructor() { }
 }

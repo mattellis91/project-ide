@@ -55,10 +55,11 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
     }
 
     canvas.onmouseup = (e:MouseEvent) => {
-      this.handleMouseUp(e);
+      this.handleMouseUp(e)
     }
 
     canvas.onwheel = (e:WheelEvent) => {
+      e.preventDefault();
       if(e.deltaY < 0) {
         this.canvasHeight += this.canvasZoomDelta;
         this.canvasWidth += this.canvasZoomDelta;
@@ -95,7 +96,7 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
     this.ctx!.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 
     if(this.hoverPixel.x >= 0 && this.hoverPixel.y >= 0) {
-      this.drawPixel(this.hoverPixel, '#f00');
+      this.drawPixel(this.hoverPixel, this.editorService.selectedColor);
     }
 
     for(let i = 0; i < this.pixelsWide; i++) {
@@ -135,7 +136,7 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
     const y = e.clientY - r.top;
     this.hoverPixel = this.mouseToPixel(x, y);
     if(this.dragging) {
-      this.pixels[this.hoverPixel.x][this.hoverPixel.y] = '#000';
+      this.pixels[this.hoverPixel.x][this.hoverPixel.y] = this.editorService.selectedColor ?? '#000';
       this.drawPixel(this.hoverPixel);
     }
   }
@@ -145,7 +146,7 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;
     const pixelLocation = this.mouseToPixel(x, y);
-    this.pixels[pixelLocation.x][pixelLocation.y] = '#000';
+    this.pixels[pixelLocation.x][pixelLocation.y] = this.editorService.selectedColor ?? '#000';
     this.drawPixel(pixelLocation);
     this.dragging = true;
   }

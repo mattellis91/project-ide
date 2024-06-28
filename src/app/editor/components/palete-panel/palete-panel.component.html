@@ -1,5 +1,5 @@
 <div class="command-palette">
-    <div *ngFor="let command of commands" class="command-color">
-        {{command.text}}
+    <div *ngFor="let command of commands" class="command-color" (click)="setCommandColor(command)" [style]="{background: command.hex}">
     </div>
+    <div *ngIf="selectedColor" class="command-color" [style]="{background: selectedColor}"></div>
 </div>
