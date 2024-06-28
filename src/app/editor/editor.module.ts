@@ -14,6 +14,7 @@ import { ButtonModule } from 'primeng/button';
 import { TabViewModule } from 'primeng/tabview';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { SplitterModule } from 'primeng/splitter';
+import { EditorService } from './services/editor.service';
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { SplitterModule } from 'primeng/splitter';
     TabViewModule,
     ColorPickerModule,
     SplitterModule
+  ],
+  providers: [
+    EditorService
   ],
 })
 export class EditorModule { }

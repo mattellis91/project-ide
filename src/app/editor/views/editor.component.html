@@ -7,8 +7,8 @@
           <ng-template pTemplate>
             <p-splitter [panelSizes]="[70, 30]" layout="vertical">
               <ng-template pTemplate>
-                  <div class="col flex align-items-center justify-content-center">
-                      Panel for color palletes
+                  <div [style]="{maxWidth:'100%'}">
+                      <app-palete-panel></app-palete-panel>
                   </div>
               </ng-template>
               <ng-template pTemplate>
@@ -25,12 +25,7 @@
                       <div style="flex-grow: 1;" class="flex align-items-center justify-content-center">
                         <p-tabView>
                           <p-tabPanel header="File 1">
-                              <div class="editor-content">
-                                <div class="canvas-wrapper">
-                                  <div [style]="{width:'600px', height:'600px', background:'red'}"></div>
-                                </div>
-                                <div class="canvas-toolbar">sdf</div>
-                              </div>
+                              <app-canvas-panel></app-canvas-panel>
                           </p-tabPanel>
                           <p-tabPanel header="File 2">
                               <p>

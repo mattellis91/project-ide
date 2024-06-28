@@ -1,1 +1,5 @@
-<p>palete-panel works!</p>
+<div class="command-palette">
+    <div *ngFor="let command of commands" class="command-color">
+        {{command.text}}
+    </div>
+</div>

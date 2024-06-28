@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
 
 body {
     margin: 0;
@@ -12,8 +13,10 @@ body {
 .p-tabview, .p-tabview-nav, .p-tabview-panels, .p-tabview-panel, .p-tabview-panels .p-tabview-panel {
     background: none;
     border-radius: 0;
+    z-index: 1000;
     font-size: small;
     .p-tabview-nav-link {
+        z-index: 1000;
         background: none;
         border-radius: 0;
     }
@@ -39,13 +42,15 @@ body {
 .canvas-toolbar {
     width: 3%;
     height: 100%;
-    padding: 0;
+    padding-right: 1rem;
     margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background:black;
     flex-grow: 0;
+    color:black;
+    flex-direction: column;
+    gap: .5rem;
 }
 
 .p-tabview, .p-tabview-panels {
