@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { EditorService } from '../../services/editor.service';
+import { Interpreter } from '../../lib/piet/interpreter';
 
 
 
@@ -56,6 +57,10 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
 
     canvas.onmouseup = (e:MouseEvent) => {
       this.handleMouseUp(e)
+    }
+
+    canvas.onmouseleave = (e:MouseEvent) => {
+      this.handleMouseLeave(e);
     }
 
     canvas.onwheel = (e:WheelEvent) => {
@@ -155,6 +160,10 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
     this.dragging = false;
   }
 
+  handleMouseLeave(e:MouseEvent) {
+    this.hoverPixel = {x: -1, y: -1};
+  }
+
   drawPixel(pixelLocation:PixelLocation, color?:string) {
     if (!this.ctx) { return; }
     this.ctx.fillStyle = color ?? this.pixels[pixelLocation.x][pixelLocation.y];
@@ -165,6 +174,10 @@ export class CanvasPanelComponent  implements OnInit, AfterViewInit {
     const x = Math.floor(mouseX / this.pixelWidth);
     const y = Math.floor(mouseY / this.pixelHeight);
     return {x, y};
+  }
+
+  handleRunInterpreter() {
+    const interpreter = new Interpreter(this.pixels);
   }
 
 }
