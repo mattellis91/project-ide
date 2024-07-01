@@ -20,87 +20,87 @@ export class PaletePanelComponent {
     {
       description: 'Red',
       hex: '#FF0000',
-      action: undefined
+      action: 'push'
     },
     {
       description: 'Dark Red',
       hex: '#C00000',
-      action: undefined
+      action: 'pop'
     },
     {
       description: 'Light Yellow',
       hex: '#FFFFC0',
-      action: undefined
+      action: 'add'
     },
     {
       description: 'Yellow',
       hex: '#FFFF00',
-      action: undefined
+      action: 'sub'
     },
     {
       description: 'Dark Yellow',
       hex: '#C0C000',
-      action: undefined
+      action: 'multi'
     },
     {
       description: 'Light Green',
       hex: '#C0FFC0',
-      action: undefined
+      action: 'div'
     },
     {
       description: 'Green',
       hex: '#00FF00',
-      action: undefined
+      action: 'mod'
     },
     {
       description: 'Dark Green',
       hex: '#00C000',
-      action: undefined
+      action: 'not'
     },
     {
       description: 'Light Cyan',
       hex: '#C0FFFF',
-      action: undefined
+      action: 'gt'
     },
     {
       description: 'Cyan',
       hex: '#00FFFF',
-      action: undefined
+      action: 'point'
     },
     {
       description: 'Dark Cyan',
       hex: '#00C0C0',
-      action: undefined
+      action: 'switch'
     },
     {
       description: 'Light Blue',
       hex: '#C0C0FF',
-      action: undefined
+      action: 'dup'
     },
     {
       description: 'Blue',
       hex: '#0000FF',
-      action: undefined
+      action: 'roll'	
     },
     {
       description: 'Dark Blue',
       hex: '#0000C0',
-      action: undefined
+      action: 'in(n)'
     },
     {
       description: 'Light Magenta',
       hex: '#FFC0FF',
-      action: undefined
+      action: 'in(c)',
     },
     {
       description: 'Magenta',
       hex: '#FF00FF',
-      action: undefined
+      action: 'out(n)'
     },
     {
       description: 'Dark Magenta',
       hex: '#C000C0',
-      action: undefined
+      action: 'out(c)'
     },
     {
       description: 'White',
