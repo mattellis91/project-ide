@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { EditorService } from '../../services/editor.service';
+import { Interpreter } from '../../lib/piet/interpreter';
 
 
-interface Color { hex: string, description: string, action: string | undefined }
+export interface Color { hex: string, description: string, action: string | undefined }
 @Component({
   selector: 'app-palete-panel',
   templateUrl: './palete-panel.component.html',
@@ -120,6 +121,8 @@ export class PaletePanelComponent {
     console.log(command);
     this.editorService.selectedColor = command.hex;
     this.selectedColor = command.hex;
+
+    Interpreter.setPalletCommands(this.selectedColor.toLowerCase(), this.commands) 
   }
 
   ngOnInit() {
