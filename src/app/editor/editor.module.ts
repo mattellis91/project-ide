@@ -34,7 +34,7 @@ import { AngularSplitModule } from 'angular-split';
     TabViewModule,
     ColorPickerModule,
     SplitterModule,
-    AngularSplitModule
+    AngularSplitModule,
   ],
   providers: [
     EditorService

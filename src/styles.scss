@@ -1,10 +1,64 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+.p-menubar, .p-submenu-list {
+    border-radius: 0;
+    padding: .1rem;
+    background-color: #1A2023;
+    border:none;
+    border-bottom: 1px solid #000;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: small;
+}
+
+.p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-content .p-menuitem-link {
+    padding: .5rem .75rem;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+}
+
+html,body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
+    padding: 0;
+    font-size: small;
 }
+
 .p-splitter {
     background: none;
     border-radius: 0;
@@ -16,9 +70,9 @@ body {
     z-index: 1000;
     font-size: small;
     .p-tabview-nav-link {
-        z-index: 1000;
+        //z-index: 1000;
         background: none;
-        border-radius: 0;
+        //border-radius: 0;
     }
 }
 

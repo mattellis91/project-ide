@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 
 import { EditorModule } from './editor/editor.module';
 
+import { MenubarModule } from 'primeng/menubar';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { EditorModule } from './editor/editor.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    EditorModule
+    EditorModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

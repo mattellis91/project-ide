@@ -1,1 +1,9 @@
-<router-outlet />
+<p-menubar [model]="items" />
+<div style="height: 100%; display: flex;">
+    <div style="height: 100%; flex-basis: 50px; flex-grow:0; flex-shrink: 0; background-color: #1A2023; border-right: 1px solid #000;">
+        <i class="pi pi-files"></i>
+    </div>
+    <div style="height: 100%; width: 100%;">
+        <router-outlet />
+    </div>
+</div>

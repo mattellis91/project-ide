@@ -1,9 +1,10 @@
 <div class="container">
-    <div class="split-example" style="height: 100vh; width: 100vw;">
-      <as-split direction="horizontal" restrictMove="true" [useTransition]="true" [gutterSize]="3">
+    <div class="split-example" style="height: 100%;">
+      <as-split direction="horizontal" restrictMove="true" [useTransition]="true" [gutterSize]="1">
         <as-split-area size="20">
-          <as-split direction="vertical" restrictMove="true" [gutterSize]="3">
+          <as-split direction="vertical" restrictMove="true" [gutterSize]="1">
             <as-split-area size="75">
+                <div style="background-color: #232A2F; padding:.5rem; font-family: 'Space Mono', monospace;">PALETE</div>
                 <app-palete-panel></app-palete-panel>
             </as-split-area>
             <as-split-area size="25">
@@ -12,21 +13,12 @@
           </as-split>
         </as-split-area>
         <as-split-area size="80">
-          <as-split direction="vertical" restrictMove="true" [gutterSize]="3">
+          <as-split direction="vertical" restrictMove="true" [gutterSize]="1">
             <as-split-area size="75">
-                <p-tabView>
-                    <p-tabPanel header="File 1">
-                        <app-canvas-panel></app-canvas-panel>
-                    </p-tabPanel>
-                    <p-tabPanel header="File 2">
-                        <p>
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
-                        </p>
-                    </p-tabPanel>
-                </p-tabView>  
+                <app-canvas-panel></app-canvas-panel>
             </as-split-area>
             <as-split-area size="25">
-                <p-tabView>
+                <!-- <p-tabView>
                     <p-tabPanel header="Input">
                         <p>
                             Lorem ipsum dolor sit amet...
@@ -37,7 +29,7 @@
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium...
                         </p>
                     </p-tabPanel>
-                </p-tabView>
+                </p-tabView> -->
             </as-split-area>
           </as-split>
         </as-split-area>

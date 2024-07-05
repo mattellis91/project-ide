@@ -1,35 +1,15 @@
 import { Color } from "../../components/palete-panel/palete-panel.component";
 
+interface Point {
+    x: number;
+    y: number;
+}
+
 export class Interpreter {
     
-    static commandsMatrix = [
-        ['*', 'push', 'pop'],
-        ['add', 'sub', 'multi'],
-        ['div', 'mod', 'not'],
-        ['great', 'point', 'switch'],
-        ['dup', 'roll', 'in(n)'],
-        ['in(c)', 'out(n)', 'out(c)']
-    ];
-    static commandsInverseMatrix = [
-        ['*', 'pop', 'push'],
-        ['in(c)', 'out(c)', 'out(n)'],
-        ['dup', 'in(n)', 'roll'],
-        ['great', 'switch', 'point'],
-        ['div', 'not', 'mod'],
-        ['add', 'multi', 'sub'],
-    ];
-    static colorsMatrix = [
-        ['#ffc0c0', '#ff0000', '#c00000'],
-        ['#ffffc0', '#ffff00', '#c0c000'],
-        ['#c0ffc0', '#00ff00', '#00c000'],
-        ['#c0ffff', '#00ffff', '#00c0c0'],
-        ['#c0c0ff', '#0000ff', '#0000c0'],
-        ['#ffc0ff', '#ff00ff', '#c000c0'],
-    ];
     static HueCount = 6;
     static LightnessCount = 3;
-
-    static hex2tuple:Record<string, {color:string, abbv:string, hue:number, dark:number}> = {
+    static codelMap:Record<string, {color:string, abbv:string, hue:number, dark:number}> = {
         '#ffc0c0':{'color':'light red','abbv':'lR','hue':0,'dark':0},
         '#ffffc0':{'color':'light yellow','abbv':'lY','hue':1,'dark':0},
         '#c0ffc0':{'color':'light green','abbv':'lG','hue':2,'dark':0},
@@ -57,6 +37,8 @@ export class Interpreter {
     stack: number[] = [];
     blockValue: number = 1;
     pixelData: string[][] = [];
+    dpDirection: Point = {x: 1, y: 0};
+    ccDirection: Point = {x: 0, y: 1};
     
     constructor(pixelData: string[][]) {
         this.pixelData = pixelData;
@@ -86,18 +68,17 @@ export class Interpreter {
     }
 
     static setPalletCommands(currentColor:string, commands: Color[]) {
-        console.log(currentColor, commands);
         for(let command of commands) {
             command.action = this.getCommandFromColorChange(currentColor, command.hex.toLowerCase());
         }
     }
     
     static getCommandFromColorChange(prevColor:string, newColor:string): string {
-        const oldLightness = (this.hex2tuple[prevColor]).dark;
-        const oldHue = this.hex2tuple[prevColor].hue;
+        const oldLightness = (this.codelMap[prevColor]).dark;
+        const oldHue = this.codelMap[prevColor].hue;
 
-        const newLightness = this.hex2tuple[newColor].dark;
-        const newHue = this.hex2tuple[newColor].hue;
+        const newLightness = this.codelMap[newColor].dark;
+        const newHue = this.codelMap[newColor].hue;
 
         const lightnessChange = (newLightness - oldLightness + Interpreter.LightnessCount) % Interpreter.LightnessCount;
         const hueChange = (newHue - oldHue + Interpreter.HueCount) % Interpreter.HueCount;

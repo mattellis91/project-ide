@@ -8,11 +8,14 @@ const {app, BrowserWindow} = require('electron')
       mainWindow = new BrowserWindow({
         width: 1680,
         height: 1050,
+        frame: true,
         webPreferences: {
           nodeIntegration: true,
           contextIsolation: false,
         }
       })
+
+      mainWindow.setMenu(null)
 
       // mainWindow.loadURL(
       //   url.format({
