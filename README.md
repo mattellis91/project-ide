@@ -1,2 +1,2 @@
-# piet-ide
-Piete IDE
+# project-IDE
+Project IDE
